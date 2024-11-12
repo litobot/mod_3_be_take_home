@@ -20,20 +20,30 @@ Tea.create!([
 ])
 
 Subscription.create!([
-  { title: "Tea Lover Monthly", price: 20.0, status: "active", frequency: "monthly" },
-  { title: "Bi-Annual Tea Delight", price: 120.0, status: "active", frequency: "bi-annual" },
-  { title: "Annual Tea Bliss", price: 240.0, status: "active", frequency: "annual" }
+  { title: "Weekly Tea Adventure", price: 15.0, status: "active", frequency: "weekly", customer_id: 1 },
+  { title: "Monthly Green Tea Box", price: 20.0, status: "active", frequency: "monthly", customer_id: 2 },
+  { title: "Quarterly Black Tea Special", price: 50.0, status: "active", frequency: "quarterly", customer_id: 3 },
+  { title: "Bi-Annual Matcha Experience", price: 100.0, status: "active", frequency: "bi-annually", customer_id: 4 },
+  { title: "Annual Tea Masterpiece", price: 200.0, status: "active", frequency: "annually", customer_id: 5 },
+  { title: "Monthly Herbal Delight", price: 18.0, status: "active", frequency: "monthly", customer_id: 1 },
+  { title: "Quarterly Oolong Celebration", price: 55.0, status: "active", frequency: "quarterly", customer_id: 2 },
+  { title: "Bi-Annual White Tea Box", price: 110.0, status: "active", frequency: "bi-annually", customer_id: 3 },
+  { title: "Weekly Fruit Infusion", price: 12.0, status: "active", frequency: "weekly", customer_id: 4 },
+  { title: "Annual Herbal Bliss", price: 220.0, status: "active", frequency: "annually", customer_id: 5 }
 ])
 
+
 TeaSubscription.create!([
-  { tea_id: 7, subscription_id: 3, customer_id: 5 },
-  { tea_id: 2, subscription_id: 1, customer_id: 3 },
-  { tea_id: 8, subscription_id: 3, customer_id: 1 },
-  { tea_id: 6, subscription_id: 3, customer_id: 2 },
-  { tea_id: 9, subscription_id: 3, customer_id: 2 },
-  { tea_id: 1, subscription_id: 2, customer_id: 4 },
-  { tea_id: 3, subscription_id: 1, customer_id: 5 },
-  { tea_id: 4, subscription_id: 2, customer_id: 4 },
-  { tea_id: 5, subscription_id: 1, customer_id: 3 },
-  { tea_id: 10, subscription_id: 3, customer_id: 1 }
+  { tea_id: 7, subscription_id: 3 },
+  { tea_id: 2, subscription_id: 1 },
+  { tea_id: 8, subscription_id: 3 },
+  { tea_id: 6, subscription_id: 3 },
+  { tea_id: 9, subscription_id: 3 },
+  { tea_id: 1, subscription_id: 2 },
+  { tea_id: 3, subscription_id: 1 },
+  { tea_id: 4, subscription_id: 2 },
+  { tea_id: 5, subscription_id: 1 },
+  { tea_id: 10, subscription_id: 3 }
 ])
+
+p "Successfully Seeded"

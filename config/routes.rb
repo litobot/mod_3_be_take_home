@@ -13,5 +13,4 @@ Rails.application.routes.draw do
       resources :tea_subscriptions, only: [:index]
     end
   end
-
 end
