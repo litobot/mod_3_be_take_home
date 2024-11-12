@@ -1,4 +1,10 @@
-# db/seeds.rb
+Customer.create!([
+  { first_name: "John", last_name: "Doe", email: "john.doe@example.com", address: "123 Main St, Springfield, IL" },
+  { first_name: "Jane", last_name: "Smith", email: "jane.smith@example.com", address: "456 Elm St, Austin, TX" },
+  { first_name: "Alice", last_name: "Johnson", email: "alice.johnson@example.com", address: "789 Oak St, Seattle, WA" },
+  { first_name: "Bob", last_name: "Brown", email: "bob.brown@example.com", address: "321 Pine St, Denver, CO" },
+  { first_name: "Charlie", last_name: "Davis", email: "charlie.davis@example.com", address: "654 Maple St, Miami, FL" }
+])
 
 Tea.create!([
   { title: "MistyRose Herbal Tea", description: "A aromatic flavor profile with hints of malty.", temperature: 171, brew_time: 4.00 },
@@ -10,15 +16,24 @@ Tea.create!([
   { title: "Coral White Tea", description: "A fruity flavor profile with hints of nutty.", temperature: 189, brew_time: 4.75 },
   { title: "Salmon Green Tea", description: "A bold flavor profile with hints of herbaceous.", temperature: 197, brew_time: 3.50 },
   { title: "Crimson Oolong Tea", description: "A rich flavor profile with hints of smooth.", temperature: 207, brew_time: 4.25 },
-  { title: "Plum Herbal Tea", description: "A floral flavor profile with hints of earthy.", temperature: 171, brew_time: 3.75 },
-  { title: "Olive Black Tea", description: "A spicy flavor profile with hints of peppery.", temperature: 199, brew_time: 3.25 },
-  { title: "Ivory White Tea", description: "A smoky flavor profile with hints of delicate.", temperature: 162, brew_time: 4.50 },
-  { title: "Teal Oolong Tea", description: "A malty flavor profile with hints of robust.", temperature: 202, brew_time: 5.00 },
-  { title: "Lavender Matcha Tea", description: "A minty flavor profile with hints of refreshing.", temperature: 175, brew_time: 3.50 },
-  { title: "Beige Herbal Tea", description: "A citrusy flavor profile with hints of tangy.", temperature: 168, brew_time: 4.00 },
-  { title: "Amber Green Tea", description: "A herbaceous flavor profile with hints of floral.", temperature: 186, brew_time: 3.25 },
-  { title: "Scarlet Black Tea", description: "A bold flavor profile with hints of nutty.", temperature: 210, brew_time: 4.75 },
-  { title: "Fuchsia Oolong Tea", description: "A tangy flavor profile with hints of smooth.", temperature: 203, brew_time: 4.50 },
-  { title: "Gold White Tea", description: "A refreshing flavor profile with hints of citrusy.", temperature: 188, brew_time: 3.75 },
-  { title: "Lime Matcha Tea", description: "A aromatic flavor profile with hints of fruity.", temperature: 195, brew_time: 3.00 }
+  { title: "Plum Herbal Tea", description: "A floral flavor profile with hints of earthy.", temperature: 171, brew_time: 3.75 }
+])
+
+Subscription.create!([
+  { title: "Tea Lover Monthly", price: 20.0, status: "active", frequency: "monthly" },
+  { title: "Bi-Annual Tea Delight", price: 120.0, status: "active", frequency: "bi-annual" },
+  { title: "Annual Tea Bliss", price: 240.0, status: "active", frequency: "annual" }
+])
+
+TeaSubscription.create!([
+  { tea_id: 7, subscription_id: 3, customer_id: 5 },
+  { tea_id: 2, subscription_id: 1, customer_id: 3 },
+  { tea_id: 8, subscription_id: 3, customer_id: 1 },
+  { tea_id: 6, subscription_id: 3, customer_id: 2 },
+  { tea_id: 9, subscription_id: 3, customer_id: 2 },
+  { tea_id: 1, subscription_id: 2, customer_id: 4 },
+  { tea_id: 3, subscription_id: 1, customer_id: 5 },
+  { tea_id: 4, subscription_id: 2, customer_id: 4 },
+  { tea_id: 5, subscription_id: 1, customer_id: 3 },
+  { tea_id: 10, subscription_id: 3, customer_id: 1 }
 ])
