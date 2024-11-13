@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Show Action" do
-  describe "GET /api/v1/subscription/:id" do
+  describe "GET /api/v1/subscriptions/:id" do
     before do
       @customer_1 = Customer.create!(first_name: "John", last_name: "Doe", email: "john.doe@example.com", address: "123 Main St")
       @customer_2 = Customer.create!(first_name: "Jane", last_name: "Smith", email: "jane.smith@example.com", address: "456 Elm St")
