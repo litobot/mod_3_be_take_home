@@ -1,6 +1,6 @@
 class TeaSubscriptionSerializer
   include JSONAPI::Serializer
-  attributes :tea_title, :subscription_frequency, :customer_name, :subscription_status
+  attributes :customer_name, :tea_title, :subscription_frequency, :subscription_status
 
   attribute :tea_title do |tea_subscription|
     tea_subscription.tea.title
