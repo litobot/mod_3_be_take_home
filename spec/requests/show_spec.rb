@@ -1,7 +1,5 @@
 require "rails_helper"
 
-# ADD SAD PATH
-
 RSpec.describe "Show Action" do
   describe "GET /api/v1/subscriptions/:id" do
     before do
@@ -22,40 +20,54 @@ RSpec.describe "Show Action" do
       @tea_subscription_3 = TeaSubscription.create!(tea_id: @tea_3.id, subscription_id: @subscription_3.id)
     end
 
-    it "returns the correct subscription details" do
-      get "/api/v1/subscriptions/#{@subscription_1.id}"
-    
-      expect(response).to have_http_status(:success)
-    
-      subs = JSON.parse(response.body)
-    
-      expect(subs['data']).to be_a(Hash)
-    
-      tea_subscription = subs['data']
-      expect(tea_subscription).to have_key('id')
-      expect(tea_subscription['id']).to eq(@subscription_1.id.to_s)
-    
-      expect(tea_subscription).to have_key('type')
-      expect(tea_subscription['type']).to eq('subscription')
-    
-      expect(tea_subscription).to have_key('attributes')
-    
-      attributes = tea_subscription['attributes']
-      expect(attributes).to have_key('customer_details')
-      expect(attributes['customer_details']).to eq({
-        "first_name" => "John",
-        "last_name" => "Doe",
-        "email" => "john.doe@example.com"
-      })
-    
-      expect(attributes).to have_key('teas')
-      expect(attributes['teas']).to eq([{ "title" => "Green Tea" }])
-    
-      expect(attributes).to have_key('subscription_frequency')
-      expect(attributes['subscription_frequency']).to eq('monthly')
-    
-      expect(attributes).to have_key('subscription_status')
-      expect(attributes['subscription_status']).to eq('active')
+    context "Happy Path" do
+      it "returns the correct subscription details" do
+        get "/api/v1/subscriptions/#{@subscription_1.id}"
+      
+        expect(response).to have_http_status(:success)
+      
+        subs = JSON.parse(response.body)
+      
+        expect(subs['data']).to be_a(Hash)
+      
+        tea_subscription = subs['data']
+        expect(tea_subscription).to have_key('id')
+        expect(tea_subscription['id']).to eq(@subscription_1.id.to_s)
+      
+        expect(tea_subscription).to have_key('type')
+        expect(tea_subscription['type']).to eq('subscription')
+      
+        expect(tea_subscription).to have_key('attributes')
+      
+        attributes = tea_subscription['attributes']
+        expect(attributes).to have_key('customer_details')
+        expect(attributes['customer_details']).to eq({
+          "first_name" => "John",
+          "last_name" => "Doe",
+          "email" => "john.doe@example.com"
+        })
+      
+        expect(attributes).to have_key('teas')
+        expect(attributes['teas']).to eq([{ "title" => "Green Tea" }])
+      
+        expect(attributes).to have_key('subscription_frequency')
+        expect(attributes['subscription_frequency']).to eq('monthly')
+      
+        expect(attributes).to have_key('subscription_status')
+        expect(attributes['subscription_status']).to eq('active')
+      end
+    end
+
+    context "Sad Path" do
+      it "returns an error if the subscription does not exist" do
+        get "/api/v1/subscriptions/9999"
+  
+        json = JSON.parse(response.body)
+  
+        expect(response).to have_http_status(:not_found)
+        expect(json).to have_key('error')
+        expect(json['error']).to eq("Subscription not found")
+      end
     end
   end
 end

@@ -1,7 +1,5 @@
 require "rails_helper"
 
-# ADD SAD PATH
-
 RSpec.describe "Update Action" do
   describe "PATCH /api/v1/subscriptions/:id" do
     before do
