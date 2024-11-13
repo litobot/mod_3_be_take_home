@@ -1,5 +1,7 @@
 require "rails_helper"
 
+# ADD SAD PATH
+
 RSpec.describe "Show Action" do
   describe "GET /api/v1/subscriptions/:id" do
     before do

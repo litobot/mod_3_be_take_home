@@ -9,7 +9,7 @@ Customer.create!([
 Tea.create!([
   { title: "MistyRose Herbal Tea", description: "A aromatic flavor profile with hints of malty.", temperature: 171, brew_time: 4.00 },
   { title: "Orchid Herbal Tea", description: "A robust flavor profile with hints of robust.", temperature: 201, brew_time: 4.25 },
-  { title: "BlanchedAlmond Green Tea", description: "A smooth flavor profile with hints of spicy.", temperature: 164, brew_time: 4.50 },
+  { title: "Blanched Almond Green Tea", description: "A smooth flavor profile with hints of spicy.", temperature: 164, brew_time: 4.50 },
   { title: "LightYellow Green Tea", description: "A minty flavor profile with hints of minty.", temperature: 194, brew_time: 3.75 },
   { title: "Snow Matcha Tea", description: "A citrusy flavor profile with hints of aromatic.", temperature: 178, brew_time: 4.50 },
   { title: "Azure Black Tea", description: "A delicate flavor profile with hints of tangy.", temperature: 200, brew_time: 3.00 },

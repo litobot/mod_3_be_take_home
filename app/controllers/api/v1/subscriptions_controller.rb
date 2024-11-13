@@ -5,8 +5,13 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-    updated_status = Subscription.update(params[:id], status_params)
-    render json: SubscriptionSerializer.new(updated_status)
+    subscription = Subscription.find(params[:id])
+
+    if subscription.update(status_params)
+      render json: SubscriptionSerializer.new(subscription)
+    else
+      render json: { error: subscription.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   private
