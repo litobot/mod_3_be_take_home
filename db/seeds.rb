@@ -20,16 +20,16 @@ Tea.create!([
 ])
 
 Subscription.create!([
-  { title: "Weekly Tea Adventure", price: 15.0, status: "active", frequency: "weekly", customer_id: 1 },
-  { title: "Monthly Green Tea Box", price: 20.0, status: "active", frequency: "monthly", customer_id: 2 },
-  { title: "Quarterly Black Tea Special", price: 50.0, status: "active", frequency: "quarterly", customer_id: 3 },
-  { title: "Bi-Annual Matcha Experience", price: 100.0, status: "active", frequency: "bi-annually", customer_id: 4 },
-  { title: "Annual Tea Masterpiece", price: 200.0, status: "active", frequency: "annually", customer_id: 5 },
-  { title: "Monthly Herbal Delight", price: 18.0, status: "active", frequency: "monthly", customer_id: 1 },
-  { title: "Quarterly Oolong Celebration", price: 55.0, status: "active", frequency: "quarterly", customer_id: 2 },
-  { title: "Bi-Annual White Tea Box", price: 110.0, status: "active", frequency: "bi-annually", customer_id: 3 },
-  { title: "Weekly Fruit Infusion", price: 12.0, status: "active", frequency: "weekly", customer_id: 4 },
-  { title: "Annual Herbal Bliss", price: 220.0, status: "active", frequency: "annually", customer_id: 5 }
+  { title: "Weekly Tea Adventure", price: 15.0, status: "Active", frequency: "Weekly", customer_id: 1 },
+  { title: "Monthly Green Tea Box", price: 20.0, status: "Active", frequency: "Monthly", customer_id: 2 },
+  { title: "Quarterly Black Tea Special", price: 50.0, status: "Active", frequency: "Quarterly", customer_id: 3 },
+  { title: "Bi-Annual Matcha Experience", price: 100.0, status: "Active", frequency: "Bi-Annually", customer_id: 4 },
+  { title: "Annual Tea Masterpiece", price: 200.0, status: "Active", frequency: "Annually", customer_id: 5 },
+  { title: "Monthly Herbal Delight", price: 18.0, status: "Active", frequency: "Monthly", customer_id: 1 },
+  { title: "Quarterly Oolong Celebration", price: 55.0, status: "Active", frequency: "Quarterly", customer_id: 2 },
+  { title: "Bi-Annual White Tea Box", price: 110.0, status: "Active", frequency: "Bi-Annually", customer_id: 3 },
+  { title: "Weekly Fruit Infusion", price: 12.0, status: "Active", frequency: "Weekly", customer_id: 4 },
+  { title: "Annual Herbal Bliss", price: 220.0, status: "Active", frequency: "Annually", customer_id: 5 }
 ])
 
 

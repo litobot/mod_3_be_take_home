@@ -13,7 +13,8 @@ class SubscriptionSerializer
   attribute :teas do |subscription|
     subscription.teas.map do |tea|
       {
-        title: tea.title
+        title: tea.title,
+        price: subscription.price
       }
     end
   end
