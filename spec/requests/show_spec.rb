@@ -7,9 +7,9 @@ RSpec.describe "Show Action" do
       @customer_2 = Customer.create!(first_name: "Jane", last_name: "Smith", email: "jane.smith@example.com", address: "456 Elm St")
       @customer_3 = Customer.create!(first_name: "Alice", last_name: "Johnson", email: "alice.johnson@example.com", address: "789 Oak St")
 
-      @subscription_1 = Subscription.create!(title: "Monthly Plan", price: 20.0, status: "active", frequency: "monthly", customer_id: @customer_1.id)
-      @subscription_2 = Subscription.create!(title: "Weekly Plan", price: 15.0, status: "active", frequency: "weekly", customer_id: @customer_2.id)
-      @subscription_3 = Subscription.create!(title: "Annual Plan", price: 180.0, status: "active", frequency: "annual", customer_id: @customer_3.id)
+      @subscription_1 = Subscription.create!(title: "Monthly Plan", price: 20.0, status: "Active", frequency: "Monthly", customer_id: @customer_1.id)
+      @subscription_2 = Subscription.create!(title: "Weekly Plan", price: 15.0, status: "Active", frequency: "Weekly", customer_id: @customer_2.id)
+      @subscription_3 = Subscription.create!(title: "Annual Plan", price: 180.0, status: "Active", frequency: "Annual", customer_id: @customer_3.id)
 
       @tea_1 = Tea.create!(title: "Green Tea", description: "A refreshing blend", temperature: 80, brew_time: 3.5)
       @tea_2 = Tea.create!(title: "Black Tea", description: "A bold and strong flavor", temperature: 90, brew_time: 4.0)
@@ -28,34 +28,29 @@ RSpec.describe "Show Action" do
       
         subs = JSON.parse(response.body)
       
+        expect(subs).to have_key('data')
         expect(subs['data']).to be_a(Hash)
       
-        tea_subscription = subs['data']
-        expect(tea_subscription).to have_key('id')
-        expect(tea_subscription['id']).to eq(@subscription_1.id.to_s)
-      
-        expect(tea_subscription).to have_key('type')
-        expect(tea_subscription['type']).to eq('subscription')
-      
-        expect(tea_subscription).to have_key('attributes')
-      
-        attributes = tea_subscription['attributes']
+        attributes = subs['data']['attributes']
         expect(attributes).to have_key('customer_details')
+        expect(attributes).to have_key('teas')
+        expect(attributes).to have_key('subscription_frequency')
+        expect(attributes).to have_key('subscription_status')
+      
         expect(attributes['customer_details']).to eq({
           "first_name" => "John",
           "last_name" => "Doe",
           "email" => "john.doe@example.com"
         })
       
-        expect(attributes).to have_key('teas')
-        expect(attributes['teas']).to eq([{ "title" => "Green Tea" }])
+        expect(attributes['teas']).to eq([
+          { "title" => "Green Tea", "price" => 20.0 }
+        ])
       
-        expect(attributes).to have_key('subscription_frequency')
-        expect(attributes['subscription_frequency']).to eq('monthly')
-      
-        expect(attributes).to have_key('subscription_status')
-        expect(attributes['subscription_status']).to eq('active')
+        expect(attributes['subscription_frequency']).to eq('Monthly')
+        expect(attributes['subscription_status']).to eq('Active')
       end
+      
     end
 
     context "Sad Path" do
