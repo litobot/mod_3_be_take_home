@@ -34,16 +34,21 @@ Subscription.create!([
 
 
 TeaSubscription.create!([
-  { tea_id: 7, subscription_id: 3 },
-  { tea_id: 2, subscription_id: 1 },
-  { tea_id: 8, subscription_id: 3 },
-  { tea_id: 6, subscription_id: 3 },
-  { tea_id: 9, subscription_id: 3 },
-  { tea_id: 1, subscription_id: 2 },
+  { tea_id: 1, subscription_id: 1 },
+  { tea_id: 2, subscription_id: 2 },
+  { tea_id: 3, subscription_id: 3 },
+  { tea_id: 4, subscription_id: 4 },
+  { tea_id: 5, subscription_id: 5 },
+  { tea_id: 6, subscription_id: 6 },
+  { tea_id: 7, subscription_id: 7 },
+  { tea_id: 8, subscription_id: 8 },
+  { tea_id: 9, subscription_id: 9 },
+  { tea_id: 10, subscription_id: 10 },
   { tea_id: 3, subscription_id: 1 },
-  { tea_id: 4, subscription_id: 2 },
-  { tea_id: 5, subscription_id: 1 },
-  { tea_id: 10, subscription_id: 3 }
+  { tea_id: 1, subscription_id: 2 },
+  { tea_id: 6, subscription_id: 4 },
+  { tea_id: 7, subscription_id: 5 },
+  { tea_id: 8, subscription_id: 6 }
 ])
 
 p "Successfully Seeded"
